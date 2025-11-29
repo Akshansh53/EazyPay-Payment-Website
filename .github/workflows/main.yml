@@ -1,22 +1,26 @@
-name: Checking If Building is Successfull
+name: Checking If Building is Successful
+
 on:
-  pull request:
+  pull_request:
     branches:
-      -dev
+      - dev
 
 jobs:
-  Continuos Intergration:
-    name: Checking Building the App 
+  continuous-integration:
+    name: Checking Building the App
     runs-on: ubuntu-latest
-    steps: 
-      -name: Checkout the Repository
-      uses: actions/checkout@v4
 
-      -name: Use Node.js
-      uses: actions/setup-node@v4
+    steps:
+      - name: Checkout the Repository
+        uses: actions/checkout@v4
 
-      -name: Installing Modules
-      uses: npm install --legacy-peer-deps
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-      -name: Building the App
-      uses: npm run build
+      - name: Installing Modules
+        run: npm install --legacy-peer-deps
+
+      - name: Building the App
+        run: npm run
