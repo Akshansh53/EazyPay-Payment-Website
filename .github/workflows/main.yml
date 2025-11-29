@@ -22,5 +22,7 @@ jobs:
       - name: Installing Modules
         run: npm install --legacy-peer-deps
 
-      - name: Building the App
-        run: npm run
+      - name: Running Build
+        run: npm run build
+
+
